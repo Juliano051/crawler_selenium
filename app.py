@@ -16,7 +16,7 @@ class Bot:
     def __init__(self) -> None:
         user_agent = '''Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36'''
         self.options = webdriver.ChromeOptions()
-        self.options.headless = False
+        self.options.headless = True
         self.options.add_argument(f'user-agent={user_agent}')
         self.options.add_argument("--window-size=1920,1080")
         self.options.add_argument('--ignore-certificate-errors')
