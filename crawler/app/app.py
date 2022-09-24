@@ -1,5 +1,6 @@
 from datetime import datetime
 from urllib import request
+import requests
 from urllib.request import urlretrieve
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -67,13 +68,13 @@ class Bot:
 
     def save_pdf(self, link, filename):
     
-        response = request.urlopen(link)    
+        response = requests.get(link, verify=False)    
         print("salvando")
         # print(response.read())
         file = open("./../repositorio/"+filename+".pdf" , 'wb')
         print(file)
         print(f"salvando em {filename}.pdf")
-        file.write(response.read())
+        file.write(response.content)
         file.close()
 
         sleep(25) # substituir por espera automática do final do download
